@@ -8,6 +8,7 @@ This document was generated automatically. Please see [Master List Generator](..
 - [accuweather](./accuweather/README.md)
 - [ada-balance](./ada-balance/README.md)
 - [alongside](./alongside/README.md)
+- [benchmark](./benchmark/README.md)
 - [alphachain](./alphachain/README.md)
 - [alphavantage](./alphavantage/README.md)
 - [alpine](./alpine/README.md)
