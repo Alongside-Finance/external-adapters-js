@@ -1,7 +1,6 @@
 import { makeLogger } from '@chainlink/external-adapter-framework/util/logger'
 import { ethers } from 'ethers'
 import abi from '../config/abi.json'
-import { formatUnits } from 'ethers/lib/utils'
 
 const logger = makeLogger('Alongside benchmark utils logger')
 
@@ -19,6 +18,6 @@ export class Benchmark {
   getBenchmarkPrice = async () => {
     logger.debug('Getting benchmark price')
     const price = await this.BenchmarkCalculator.getBenchmarkPrice([])
-    return Number(formatUnits(price, 6))
+    return Number(ethers.utils.formatUnits(price, 6))
   }
 }
