@@ -244,10 +244,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/sources/bea"\
       },\
       {\
-        "name": "@chainlink/benchmark-adapter",\
-        "reference": "workspace:packages/sources/benchmark"\
-      },\
-      {\
         "name": "@chainlink/binance-adapter",\
         "reference": "workspace:packages/sources/binance"\
       },\
@@ -358,6 +354,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "@chainlink/cryptex-adapter",\
         "reference": "workspace:packages/sources/cryptex"\
+      },\
+      {\
+        "name": "@chainlink/crypto-market-index",\
+        "reference": "workspace:packages/sources/crypto-market-index"\
       },\
       {\
         "name": "@chainlink/cryptoapis-adapter",\
@@ -837,7 +837,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@chainlink/avalanche-platform-adapter", ["workspace:packages/sources/avalanche-platform"]],\
       ["@chainlink/bank-frick-adapter", ["workspace:packages/sources/bank-frick"]],\
       ["@chainlink/bea-adapter", ["workspace:packages/sources/bea"]],\
-      ["@chainlink/benchmark-adapter", ["workspace:packages/sources/benchmark"]],\
       ["@chainlink/binance-adapter", ["workspace:packages/sources/binance"]],\
       ["@chainlink/binance-dex-adapter", ["workspace:packages/sources/binance-dex"]],\
       ["@chainlink/bitcoin-json-rpc-adapter", ["workspace:packages/composites/bitcoin-json-rpc"]],\
@@ -870,6 +869,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@chainlink/conflux-adapter", ["workspace:packages/targets/conflux"]],\
       ["@chainlink/covid-tracker-adapter", ["workspace:packages/sources/covid-tracker"]],\
       ["@chainlink/cryptex-adapter", ["workspace:packages/sources/cryptex"]],\
+      ["@chainlink/crypto-market-index", ["workspace:packages/sources/crypto-market-index"]],\
       ["@chainlink/crypto-volatility-index-adapter", ["workspace:packages/composites/crypto-volatility-index"]],\
       ["@chainlink/cryptoapis-adapter", ["workspace:packages/sources/cryptoapis"]],\
       ["@chainlink/cryptoapis-v2-adapter", ["workspace:packages/sources/cryptoapis-v2"]],\
@@ -5790,26 +5790,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
-      ["@chainlink/benchmark-adapter", [\
-        ["workspace:packages/sources/benchmark", {\
-          "packageLocation": "./packages/sources/benchmark/",\
-          "packageDependencies": [\
-            ["@chainlink/benchmark-adapter", "workspace:packages/sources/benchmark"],\
-            ["@chainlink/external-adapter-framework", "npm:0.29.12"],\
-            ["@types/crypto-js", "npm:4.1.1"],\
-            ["@types/jest", "npm:27.5.2"],\
-            ["@types/node", "npm:16.11.51"],\
-            ["axios", "npm:0.27.2"],\
-            ["crypto-js", "npm:4.1.1"],\
-            ["ethers", "npm:5.7.2"],\
-            ["mathjs", "npm:11.5.1"],\
-            ["nock", "npm:13.2.9"],\
-            ["tslib", "npm:2.4.1"],\
-            ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
       ["@chainlink/binance-adapter", [\
         ["workspace:packages/sources/binance", {\
           "packageLocation": "./packages/sources/binance/",\
@@ -6393,6 +6373,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ethers", "npm:5.7.2"],\
             ["nock", "npm:13.2.9"],\
             ["supertest", "npm:6.2.4"],\
+            ["tslib", "npm:2.4.1"],\
+            ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@chainlink/crypto-market-index", [\
+        ["workspace:packages/sources/crypto-market-index", {\
+          "packageLocation": "./packages/sources/crypto-market-index/",\
+          "packageDependencies": [\
+            ["@chainlink/crypto-market-index", "workspace:packages/sources/crypto-market-index"],\
+            ["@chainlink/external-adapter-framework", "npm:0.29.12"],\
+            ["@types/crypto-js", "npm:4.1.1"],\
+            ["@types/jest", "npm:27.5.2"],\
+            ["@types/node", "npm:16.11.51"],\
+            ["axios", "npm:0.27.2"],\
+            ["crypto-js", "npm:4.1.1"],\
+            ["ethers", "npm:5.7.2"],\
+            ["mathjs", "npm:11.5.1"],\
+            ["nock", "npm:13.2.9"],\
             ["tslib", "npm:2.4.1"],\
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
           ],\

@@ -1,29 +1,29 @@
-import { BaseEndpointTypes } from '../endpoint/benchmark'
+import { BaseEndpointTypes } from '../endpoint/crypto-market-index'
 import { SubscriptionTransport } from '@chainlink/external-adapter-framework/transports/abstract/subscription'
 import { ResponseCache } from '@chainlink/external-adapter-framework/cache/response'
 import { Requester } from '@chainlink/external-adapter-framework/util/requester'
 import { TransportDependencies } from '@chainlink/external-adapter-framework/transports'
 import { config } from '../config'
-import { Benchmark } from './utils'
+import { Calculator } from './utils'
 import { EndpointContext } from '@chainlink/external-adapter-framework/adapter'
 import { makeLogger } from '@chainlink/external-adapter-framework/util/logger'
 import { AdapterResponse, sleep } from '@chainlink/external-adapter-framework/util'
 
 const logger = makeLogger('BenchmarkLogger')
 
-export type BenchmarkTransportTypes = BaseEndpointTypes & {
+export type CryptoMarketIndexTransportTypes = BaseEndpointTypes & {
   Provider: {
     RequestBody: never
-    ResponseBody: any
+    ResponseBody: number
   }
 }
-export class AlongsideBenchmarkTransport extends SubscriptionTransport<BenchmarkTransportTypes> {
-  responseCache!: ResponseCache<BenchmarkTransportTypes>
+export class CryptoMarketIndexTransport extends SubscriptionTransport<CryptoMarketIndexTransportTypes> {
+  responseCache!: ResponseCache<CryptoMarketIndexTransportTypes>
   requester!: Requester
   name!: string
 
   async initialize(
-    dependencies: TransportDependencies<BenchmarkTransportTypes>,
+    dependencies: TransportDependencies<CryptoMarketIndexTransportTypes>,
     adapterSettings: typeof config.settings,
     endpointName: string,
     name: string,
@@ -38,12 +38,15 @@ export class AlongsideBenchmarkTransport extends SubscriptionTransport<Benchmark
     return adapterSettings.WARMUP_SUBSCRIPTION_TTL
   }
 
-  async backgroundHandler(context: EndpointContext<BenchmarkTransportTypes>): Promise<void> {
-    const benchmark = new Benchmark(context.adapterSettings.SOURCE_RPC_URL)
+  async backgroundHandler(
+    context: EndpointContext<CryptoMarketIndexTransportTypes>,
+  ): Promise<void> {
+    logger.info(context.adapterSettings.SOURCE_RPC_URL)
+    const calculator = new Calculator(context.adapterSettings.SOURCE_RPC_URL)
     const providerDataRequestedUnixMs = Date.now()
-    let response: AdapterResponse<BenchmarkTransportTypes['Response']>
+    let response: AdapterResponse<CryptoMarketIndexTransportTypes['Response']>
     try {
-      const result = await benchmark.getBenchmarkPrice()
+      const result = await calculator.getIndexPrice()
       response = {
         data: {
           result: result,

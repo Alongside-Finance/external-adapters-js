@@ -3,17 +3,12 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "initialValue",
+        "name": "initialPriceX6",
         "type": "uint256"
       },
       {
         "internalType": "address",
-        "name": "snapshot",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_owner",
+        "name": "_snapshotStorage",
         "type": "address"
       }
     ],
@@ -21,23 +16,43 @@
     "type": "constructor"
   },
   {
-    "anonymous": false,
     "inputs": [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "previousOwner",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
+        "internalType": "string",
+        "name": "symbol",
+        "type": "string"
       }
     ],
-    "name": "OwnershipTransferred",
-    "type": "event"
+    "name": "InvalidConstituent",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "QueueTooEarly",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "RebalanceNotQueud",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "RebalanceTooEarly",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CONSTITUENTS_MAX",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [],
@@ -53,30 +68,25 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "priceUSDC",
-            "type": "uint256"
-          },
-          {
-            "internalType": "string",
-            "name": "slug",
-            "type": "string"
-          }
-        ],
-        "internalType": "struct Price[]",
-        "name": "prices",
-        "type": "tuple[]"
-      }
-    ],
-    "name": "getBenchmarkPrice",
+    "inputs": [],
+    "name": "SCALAR",
     "outputs": [
       {
         "internalType": "uint256",
         "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getBenchmarkPrice",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "benchmarkPriceX6",
         "type": "uint256"
       }
     ],
@@ -104,7 +114,7 @@
         "type": "string"
       }
     ],
-    "name": "nominals",
+    "name": "nominal",
     "outputs": [
       {
         "internalType": "uint256",
@@ -117,20 +127,7 @@
   },
   {
     "inputs": [],
-    "name": "owner",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "renounceOwnership",
+    "name": "rebalance",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -149,19 +146,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "underlying",
     "outputs": [
@@ -172,13 +156,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "updateNominals",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]

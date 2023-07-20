@@ -2208,24 +2208,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@chainlink/benchmark-adapter@workspace:packages/sources/benchmark":
-  version: 0.0.0-use.local
-  resolution: "@chainlink/benchmark-adapter@workspace:packages/sources/benchmark"
-  dependencies:
-    "@chainlink/external-adapter-framework": 0.29.12
-    "@types/crypto-js": ^4.1.1
-    "@types/jest": 27.5.2
-    "@types/node": 16.11.51
-    axios: 0.27.2
-    crypto-js: ^4.1.1
-    ethers: ^5.4.2
-    mathjs: ^11.5.1
-    nock: 13.2.9
-    tslib: 2.4.1
-    typescript: 5.0.4
-  languageName: unknown
-  linkType: soft
-
 "@chainlink/binance-adapter@workspace:packages/sources/binance":
   version: 0.0.0-use.local
   resolution: "@chainlink/binance-adapter@workspace:packages/sources/binance"
@@ -2751,6 +2733,24 @@ __metadata:
     nock: 13.2.9
     supertest: 6.2.4
     tslib: ^2.3.1
+    typescript: 5.0.4
+  languageName: unknown
+  linkType: soft
+
+"@chainlink/crypto-market-index@workspace:packages/sources/crypto-market-index":
+  version: 0.0.0-use.local
+  resolution: "@chainlink/crypto-market-index@workspace:packages/sources/crypto-market-index"
+  dependencies:
+    "@chainlink/external-adapter-framework": 0.29.12
+    "@types/crypto-js": ^4.1.1
+    "@types/jest": 27.5.2
+    "@types/node": 16.11.51
+    axios: 0.27.2
+    crypto-js: ^4.1.1
+    ethers: ^5.4.2
+    mathjs: ^11.5.1
+    nock: 13.2.9
+    tslib: 2.4.1
     typescript: 5.0.4
   languageName: unknown
   linkType: soft

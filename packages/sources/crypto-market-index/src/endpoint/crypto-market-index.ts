@@ -1,7 +1,7 @@
 import { AdapterEndpoint } from '@chainlink/external-adapter-framework/adapter'
 import { SingleNumberResultResponse } from '@chainlink/external-adapter-framework/util'
 import { EmptyInputParameters } from '@chainlink/external-adapter-framework/validation/input-params'
-import { AlongsideBenchmarkTransport } from '../transport/benchmark'
+import { CryptoMarketIndexTransport } from '../transport/crypto-market-index'
 import { config } from '../config'
 
 export type BaseEndpointTypes = {
@@ -11,6 +11,6 @@ export type BaseEndpointTypes = {
 }
 
 export const endpoint = new AdapterEndpoint({
-  name: 'benchmark',
-  transport: new AlongsideBenchmarkTransport(),
+  name: 'crypto-market-index',
+  transport: new CryptoMarketIndexTransport(),
 })
