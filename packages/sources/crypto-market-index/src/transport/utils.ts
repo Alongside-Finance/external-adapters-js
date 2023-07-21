@@ -10,7 +10,7 @@ export class Calculator {
   constructor(rpcUrl: string) {
     this.provider = new ethers.providers.JsonRpcProvider(rpcUrl)
     this.contract = new ethers.Contract(
-      '0x5094Fa1635C47f5806d40326aBEA8061f7973C0C',
+      '0x18105aeF55b6d2fCCFba262BF769dc02f2F562Bf',
       abi,
       this.provider,
     )

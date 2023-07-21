@@ -3,7 +3,7 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "initialPriceX6",
+        "name": "initialPriceX18",
         "type": "uint256"
       },
       {
@@ -28,12 +28,12 @@
   },
   {
     "inputs": [],
-    "name": "QueueTooEarly",
+    "name": "RebalanceNotQueud",
     "type": "error"
   },
   {
     "inputs": [],
-    "name": "RebalanceNotQueud",
+    "name": "RebalanceReplay",
     "type": "error"
   },
   {
@@ -86,7 +86,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "benchmarkPriceX6",
+        "name": "benchmarkPriceX18",
         "type": "uint256"
       }
     ],
@@ -96,6 +96,19 @@
   {
     "inputs": [],
     "name": "lastRebalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lastReblanaceSnapshotBlock",
     "outputs": [
       {
         "internalType": "uint256",
